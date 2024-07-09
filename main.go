@@ -31,8 +31,8 @@ func main() {
 	router.Init(r)
 
 	go func() {
-		periodSecond := time.Duration(config.ConfigInfo.DBCHealthCheckReportPeriodSeconds) * time.Second
-		logrus.Info("fetchNvidia will exec every %s", periodSecond)
+		periodSecond := time.Duration(config.ConfigInfo.NvidiaFetchPeriodSeconds) * time.Second
+		logrus.Infof("fetchNvidia will exec every %s", periodSecond)
 		for {
 			common.FetchNvidia()
 			time.Sleep(periodSecond)

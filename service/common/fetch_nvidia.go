@@ -13,6 +13,7 @@ type NvidiaFetchInfo struct {
 	MemoryTotal    string
 	MemoryUsed     string
 	UtilizationGPU string
+	GPUName        string
 }
 
 func GetNvidiaFetchInfo() NvidiaFetchInfo {
@@ -47,6 +48,7 @@ func FetchNvidia() {
 			MemoryTotal:    memoryTotal,
 			MemoryUsed:     memoryUsed,
 			UtilizationGPU: utilizationGPU,
+			GPUName:        name,
 		}
 
 		fmt.Printf("GPU Index: %s, Name: %s, Memory Total: %s, Memory Used: %s, Utilization GPU: %s\n", index, name, memoryTotal, memoryUsed, utilizationGPU)
