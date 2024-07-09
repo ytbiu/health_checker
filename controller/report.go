@@ -13,9 +13,13 @@ type Response struct {
 }
 
 type ReportReq struct {
-	NodeId      string `json:"node_id" binding:"required"`
-	ProjectName string `json:"project_name" binding:"required"`
-	Model       string `json:"model" binding:"required"`
+	NodeId  string          `json:"node_id" binding:"required"`
+	Project string          `json:"project" binding:"required"`
+	Models  []RegisterModel `json:"models" binding:"required"`
+}
+
+type RegisterModel struct {
+	Model string
 }
 
 func Report(c *gin.Context) {
