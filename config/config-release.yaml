@@ -1,5 +1,5 @@
 ListenAddr: 0.0.0.0:8081
-DBCHealthCheckClusterAddr: http://127.0.0.1:8080/a
-DBCHealthCheckClusterPath: http://127.0.0.1:8080/b
+DBCHealthCheckClusterAddr: http://172.17.0.1:7002
+DBCHealthCheckClusterPath: api/v0/health_check/report
 DBCHealthCheckReportPeriodSeconds: 10
 NvidiaFetchPeriodSeconds: 60
