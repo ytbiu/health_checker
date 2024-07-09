@@ -5,12 +5,16 @@ import (
 	"health_checker/service/common"
 )
 
-func Report(nodeId, projectName, model string) error {
+type RegisterModel struct {
+	Model string
+}
+
+func Report(nodeId, project string, model []RegisterModel) error {
 	fetchInfo := common.GetNvidiaFetchInfo()
 	logrus.Infof("%v", map[string]interface{}{
 		"node_id":        nodeId,
-		"project_name":   projectName,
-		"model":          model,
+		"project":        project,
+		"models":         model,
 		"GPUName":        fetchInfo.GPUName,
 		"UtilizationGPU": fetchInfo.UtilizationGPU,
 		"MemoryTotal":    fetchInfo.MemoryTotal,

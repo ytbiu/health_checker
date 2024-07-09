@@ -13,13 +13,9 @@ type Response struct {
 }
 
 type ReportReq struct {
-	NodeId  string          `json:"node_id" binding:"required"`
-	Project string          `json:"project" binding:"required"`
-	Models  []RegisterModel `json:"models" binding:"required"`
-}
-
-type RegisterModel struct {
-	Model string
+	NodeId  string                  `json:"node_id" binding:"required"`
+	Project string                  `json:"project" binding:"required"`
+	Models  []service.RegisterModel `json:"models" binding:"required"`
 }
 
 func Report(c *gin.Context) {
@@ -32,7 +28,7 @@ func Report(c *gin.Context) {
 		return
 	}
 
-	if err := service.Report(req.NodeId, req.ProjectName, req.Model); err != nil {
+	if err := service.Report(req.NodeId, req.Project, req.Models); err != nil {
 		logrus.Errorf("service.Report err : %s", err)
 		c.JSON(200, Response{
 			Code:   -2,
