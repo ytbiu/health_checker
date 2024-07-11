@@ -6,6 +6,6 @@ import (
 )
 
 func Init(r *gin.Engine) {
-	r.POST("api/v1/report", controller.Report)
+	r.GET("api/v1/report", controller.Report)
 
 }
