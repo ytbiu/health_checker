@@ -17,7 +17,7 @@ type NvidiaFetchInfo struct {
 }
 
 func GetNvidiaFetchInfo() NvidiaFetchInfo {
-	return NvidiaFetchInfo{}
+	return nvidiaFetchInfo
 }
 
 func FetchNvidia() {
